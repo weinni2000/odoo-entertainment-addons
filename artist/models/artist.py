@@ -10,6 +10,7 @@ class Artist(models.Model):
     _description = 'Artist'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
+    sequence = fields.Integer()
     name = fields.Char(required=True)
     active = fields.Boolean(default=True)
 

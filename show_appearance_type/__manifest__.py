@@ -3,7 +3,7 @@
 {
     "name": "Show Appearance Type",
     "summary": "Add new object Show Appearance Type and new field Appearance Type on Project",
-    "version": "1.0.0",
+
     "website": "https://bit.ly/numigi-com",
     "author": "Numigi",
     "maintainer": "Numigi",

@@ -3,7 +3,7 @@
 
 {
     'name': 'Musical Artwork',
-    'version': '1.2.0',
+
     'author': 'Numigi',
     'maintainer': 'Numigi',
     'website': 'https://www.numigi.com',

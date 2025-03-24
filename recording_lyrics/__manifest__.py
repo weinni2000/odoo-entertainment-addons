@@ -3,7 +3,7 @@
 
 {
     'name': 'Recording Lyrics',
-    'version': '1.0.0',
+
     'author': 'Numigi',
     'maintainer': 'Numigi',
     'website': 'https://www.numigi.com',

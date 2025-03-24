@@ -3,7 +3,7 @@
 {
     "name": "Project Show List",
     "summary": "Add more fields to project list view and more filters to project search view",
-    "version": "1.0.0",
+
     "website": "https://bit.ly/numigi-com",
     "author": "Numigi",
     "maintainer": "Numigi",

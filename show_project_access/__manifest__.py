@@ -4,7 +4,7 @@
 {
     "name": "Show Project Access",
     "summary": "Add access rules to projects based on show types",
-    "version": "1.0.0",
+
     "website": "https://bit.ly/numigi-com",
     "author": "Numigi",
     "maintainer": "Numigi",
