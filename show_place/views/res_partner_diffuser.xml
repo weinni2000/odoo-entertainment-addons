@@ -5,13 +5,13 @@
         <field name="name">res.partner.diffuser.view.tree</field>
         <field name="model">res.partner.diffuser</field>
         <field name="arch" type="xml">
-            <tree editable="bottom">
+            <list editable="bottom">
                 <field name="partner_id"/>
                 <field name="diffuser_role_id"/>
                 <field name="phone"/>
                 <field name="mobile"/>
                 <field name="email"/>
-            </tree>
+            </list>
         </field>
     </record>
 

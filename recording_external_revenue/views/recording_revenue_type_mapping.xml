@@ -24,10 +24,10 @@
         <field name="name">Revenue Type Mapping List</field>
         <field name="model">recording.revenue.type.mapping</field>
         <field name="arch" type="xml">
-            <tree string="Revenue Type Mapping" editable="top">
+            <list string="Revenue Type Mapping" editable="top">
                 <field name="label"/>
                 <field name="product_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -38,7 +38,7 @@
             <search string="Search Revenue Type Mapping">
                 <field name="label"/>
                 <field name="product_id"/>
-           </search>
+            </search>
         </field>
     </record>
 
@@ -46,8 +46,8 @@
         <field name="name">Revenue Type Mapping</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">recording.revenue.type.mapping</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="recording_revenue_type_mapping_list"/>
         <field name="search_view_id" ref="recording_revenue_type_mapping_search"/>
     </record>

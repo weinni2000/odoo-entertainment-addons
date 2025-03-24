@@ -12,26 +12,26 @@
                         <group>
                             <field name="artist_id"/>
                             <field name="artwork_ids">
-                                <tree>
+                                <list>
                                     <field name="title"/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                         <group colspan="2">
                             <field name="artwork_distribution_line_ids">
-                                <tree>
+                                <list>
                                     <field name="artwork_id"/>
                                     <field name="partner_id" string="Beneficiary"/>
                                     <field name="role_id"/>
                                     <field name="percentage"/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                         <group>
                             <field name="recording_ids">
-                                <tree>
+                                <list>
                                     <field name="name"/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                     </group>
@@ -51,26 +51,26 @@
                         <group>
                             <field name="artist_id"/>
                             <field name="artwork_ids">
-                                <tree>
+                                <list>
                                     <field name="title"/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                         <group colspan="2">
                             <field name="artwork_distribution_line_ids">
-                                <tree>
+                                <list>
                                     <field name="artwork_id"/>
                                     <field name="partner_id" string="Beneficiary"/>
                                     <field name="role_id"/>
                                     <field name="percentage"/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                         <group>
                             <field name="recording_ids">
-                                <tree>
+                                <list>
                                     <field name="name"/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                     </group>

@@ -26,11 +26,11 @@
         <field name="name">Project Ticket Price Tree</field>
         <field name="model">project.ticket.price</field>
         <field name="arch" type="xml">
-            <tree string="Project Ticket Prices">
+            <list string="Project Ticket Prices">
                 <field name="project_id"/>
                 <field name="segment_id"/>
                 <field name="price"/>
-            </tree>
+            </list>
         </field>
     </record>
 

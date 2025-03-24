@@ -10,9 +10,19 @@ class Artist(models.Model):
     _description = 'Artist'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    sequence = fields.Integer()
+
+
+
     name = fields.Char(required=True)
     active = fields.Boolean(default=True)
+
+    # <MOD>
+    sequence = fields.Integer()
+    role_id = fields.Many2one('artist.role', ondelete='restrict')
+    date_from = fields.Date()
+    date_to = fields.Date()
+
+    # </MOD>
 
     company_id = fields.Many2one(
         'res.company', 'Company',

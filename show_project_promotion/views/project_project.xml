@@ -29,12 +29,12 @@
                     <label for="promotional_item_ids"/>
                     <newline/>
                     <field name="promotional_item_ids" nolabel="1">
-                        <tree editable="1">
+                        <list editable="1">
                             <field name="sequence" widget="handle"/>
                             <field name="product_id"/>
                             <field name="description"/>
                             <field name="notes"/>
-                        </tree>
+                        </list>
                     </field>
                     <label for="note"/>
                     <newline/>

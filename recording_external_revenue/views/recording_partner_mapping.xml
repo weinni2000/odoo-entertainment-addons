@@ -24,10 +24,10 @@
         <field name="name">Partner Mapping List</field>
         <field name="model">recording.partner.mapping</field>
         <field name="arch" type="xml">
-            <tree string="Partner Mapping" editable="top">
+            <list string="Partner Mapping" editable="top">
                 <field name="label"/>
                 <field name="partner_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -38,7 +38,7 @@
             <search string="Search Partner Mapping">
                 <field name="label"/>
                 <field name="partner_id"/>
-           </search>
+            </search>
         </field>
     </record>
 
@@ -46,8 +46,8 @@
         <field name="name">Partner Mapping</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">recording.partner.mapping</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="recording_partner_mapping_list"/>
         <field name="search_view_id" ref="recording_partner_mapping_search"/>
     </record>

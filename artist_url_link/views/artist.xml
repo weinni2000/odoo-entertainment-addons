@@ -10,11 +10,11 @@
                 <page name="url_links" string="URL Links">
                     <group>
                         <field name="url_link_ids" nolabel="1">
-                            <tree editable="top">
+                            <list editable="top">
                                 <field name="type_id"/>
                                 <field name="url" widget="url"/>
                                 <field name="notes" width="450px"/>
-                            </tree>
+                            </list>
                         </field>
                     </group>
                 </page>

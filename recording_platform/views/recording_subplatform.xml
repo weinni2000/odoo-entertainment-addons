@@ -10,10 +10,8 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="toggle_active" type="object"
-                                class="oe_stat_button" icon="fa-archive">
-                            <field name="active" widget="boolean_button"
-                                options='{"terminology": "archive"}'/>
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
                         </button>
                     </div>
                     <div class="oe_title">
@@ -40,12 +38,12 @@
         <field name="name">Record Subplatform List</field>
         <field name="model">recording.subplatform</field>
         <field name="arch" type="xml">
-            <tree string="Record Subplatforms" editable="top">
+            <list string="Record Subplatforms" editable="top">
                 <field name="sequence" widget="handle"/>
                 <field name="platform_id"/>
                 <field name="name"/>
                 <field name="active"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -59,7 +57,7 @@
                 <separator/>
                 <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
                 <filter string="Platform" name="groupby_platform" context="{'group_by': 'platform_id'}"/>
-           </search>
+            </search>
         </field>
     </record>
 
@@ -67,8 +65,8 @@
         <field name="name">Record Subplatforms</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">recording.subplatform</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="recording_subplatform_list"/>
         <field name="search_view_id" ref="recording_subplatform_search"/>
     </record>

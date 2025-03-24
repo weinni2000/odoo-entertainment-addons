@@ -26,13 +26,13 @@
                     </group>
                     <group string="Configurations">
                         <field name="show_configuration_ids" nolabel="1">
-                            <tree editable="bottom">
+                            <list editable="bottom">
                                 <field name="sequence" widget="handle"/>
                                 <field name="name" required="1"/>
                                 <field name="configuration_id"/>
                                 <field name="maximum_capacity"/>
                                 <field name="minor_restriction"/>
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     <group string="Diffuser's Contacts">

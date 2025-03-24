@@ -3,7 +3,7 @@
     <record id="related_recordings_action" model="ir.actions.act_window">
         <field name="name">Related Recordings</field>
         <field name="res_model">recording</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="domain">[
             ('musical_artwork_id', '=', context.get('active_id')),
             ]

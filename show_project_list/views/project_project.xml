@@ -37,14 +37,14 @@
         <field name="model">project.project</field>
         <field name="priority">20</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="sequence" widget="handle"/>
                 <field name="artist_id" />
                 <field name="parent_id" />
                 <field name="show_date" />
                 <field name="city" />
                 <field name="show_place_id" />
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -55,12 +55,12 @@
     <record id="action_project_shows" model="ir.actions.act_window">
         <field name="name">Shows</field>
         <field name="res_model">project.project</field>
-        <field name="view_type">form</field>
+
         <field name="domain">[("show_type", "=", "show")]</field>
         <field name="context">{'default_show_type': 'show'}</field>
-        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_mode">list,kanban,form</field>
         <field name="view_ids" eval="[(5, 0, 0),
-            (0, 0, {'view_mode': 'tree', 'view_id': ref('show_project_list.project_show_list')}),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('show_project_list.project_show_list')}),
         ]"/>
         <field name="search_view_id" ref="show_project_list.project_search"/>
         <field name="target">main</field>

@@ -16,7 +16,7 @@
 
                     <newline/>
                     <field name="show_fee_ids" nolabel="1">
-                        <tree editable="bottom">
+                        <list editable="bottom">
                             <field name="sequence" widget="handle"/>
                             <field name="partner_id"
                                    attrs="{'column_invisible': [('parent.show_type', '!=', 'show')]}"
@@ -38,7 +38,7 @@
                             />
                             <field name="amount"/>
                             <field name="currency_id" invisible="1"/>
-                        </tree>
+                        </list>
                     </field>
                     <label for="show_fee_note"/>
                     <newline/>

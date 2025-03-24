@@ -4,7 +4,7 @@
     <record id="related_group_recordings_action" model="ir.actions.act_window">
         <field name="name">Related Groups</field>
         <field name="res_model">recording</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="domain">[
             ('track_ids.recording_id', '=', context.get('active_id')),
             ('ttype', '=', 'group'),
@@ -14,7 +14,7 @@
     <record id="related_video_recordings_action" model="ir.actions.act_window">
         <field name="name">Related Videos</field>
         <field name="res_model">recording</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="domain">[
             ('sound_recording_id', '=', context.get('active_id')),
             ('ttype', '=', 'video'),
@@ -25,12 +25,12 @@
         <field name="name">Recording List</field>
         <field name="model">recording</field>
         <field name="arch" type="xml">
-            <tree string="Recordings">
+            <list string="Recordings">
                 <field name="name"/>
                 <field name="ttype"/>
                 <field name="number_of_tracks" string="Related Recordings"/>
                 <field name="group_type" string="Group Type"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -43,22 +43,14 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="%(related_group_recordings_action)d" type="action"
-                            class="oe_stat_button" icon="fa-play-circle-o"
-                            attrs="{'invisible': [('ttype', '!=', 'sound')]}"
-                            >
+                        <button name="%(related_group_recordings_action)d" type="action" class="oe_stat_button" icon="fa-play-circle-o" attrs="{'invisible': [('ttype', '!=', 'sound')]}">
                             <field string="Related Groups" name="related_group_count" widget="statinfo"/>
                         </button>
-                        <button name="%(related_video_recordings_action)d" type="action"
-                            class="oe_stat_button" icon="fa-file-video-o"
-                            attrs="{'invisible': [('ttype', '!=', 'sound')]}"
-                            >
+                        <button name="%(related_video_recordings_action)d" type="action" class="oe_stat_button" icon="fa-file-video-o" attrs="{'invisible': [('ttype', '!=', 'sound')]}">
                             <field string="Related Videos" name="related_video_count" widget="statinfo"/>
                         </button>
-                        <button name="toggle_active" type="object"
-                                class="oe_stat_button" icon="fa-archive">
-                            <field name="active" widget="boolean_button"
-                                options='{"terminology": "archive"}'/>
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
                         </button>
                     </div>
                     <div class="oe_title">
@@ -72,26 +64,13 @@
                     <group>
                         <group name="recording" string="Recording">
                             <field name="company_id" groups="base.group_multi_company"/>
-                            <field name="sound_recording_id" string="Related Recording"
-                                attrs="{'invisible': [('ttype', '!=', 'video')], 'required': [('ttype', '=', 'video')]}"
-                                domain="[('ttype', '=', 'sound')]"
-                                />
-                            <field name="group_type" string="Type"
-                                attrs="{'invisible': [('ttype', '!=', 'group')], 'required': [('ttype', '=', 'group')]}"
-                                />
-                            <field name="duration" widget="float_time"
-                                attrs="{'invisible': [('ttype', '!=', 'sound')], 'required': [('ttype', '=', 'sound')]}"
-                            />
-                            <field name="group_duration" widget="float_time" string="Duration"
-                                attrs="{'invisible': [('ttype', '!=', 'group')], 'required': [('ttype', '=', 'group')]}"
-                                />
+                            <field name="sound_recording_id" string="Related Recording" attrs="{'invisible': [('ttype', '!=', 'video')], 'required': [('ttype', '=', 'video')]}" domain="[('ttype', '=', 'sound')]" />
+                            <field name="group_type" string="Type" attrs="{'invisible': [('ttype', '!=', 'group')], 'required': [('ttype', '=', 'group')]}" />
+                            <field name="duration" widget="float_time" attrs="{'invisible': [('ttype', '!=', 'sound')], 'required': [('ttype', '=', 'sound')]}" />
+                            <field name="group_duration" widget="float_time" string="Duration" attrs="{'invisible': [('ttype', '!=', 'group')], 'required': [('ttype', '=', 'group')]}" />
                             <field name="production_start_date"/>
-                            <field name="filming_location"
-                                attrs="{'invisible': [('ttype', '!=', 'video')]}"
-                                />
-                            <field name="publication_country_id"
-                                attrs="{'invisible': [('ttype', '!=', 'group')], 'required': [('ttype', '=', 'group')]}"
-                                />
+                            <field name="filming_location" attrs="{'invisible': [('ttype', '!=', 'video')]}" />
+                            <field name="publication_country_id" attrs="{'invisible': [('ttype', '!=', 'group')], 'required': [('ttype', '=', 'group')]}" />
                         </group>
                         <div name="right_column">
                         </div>
@@ -100,27 +79,21 @@
                         <page name="marketing" string="Marketing">
                             <group>
                                 <group>
-                                    <field name="release_date"
-                                        attrs="{'required': [('ttype', '=', 'group')]}"
-                                        />
+                                    <field name="release_date" attrs="{'required': [('ttype', '=', 'group')]}" />
                                     <field name="upc"/>
-                                    <field name="upc_packshot"
-                                        attrs="{'invisible': [('ttype', '!=', 'sound')]}"
-                                        />
-                                    <field name="isrc"
-                                        attrs="{'invisible': [('ttype', '=', 'group')]}"
-                                        />
+                                    <field name="upc_packshot" attrs="{'invisible': [('ttype', '!=', 'sound')]}" />
+                                    <field name="isrc" attrs="{'invisible': [('ttype', '=', 'group')]}" />
                                     <field name="commercial_territory_id"/>
                                 </group>
                                 <group>
                                     <field name="catalogue_reference" string="Internal Catalog"/>
                                     <label for="musical_catalog_reference_ids" string="External Catalogs"/>
                                     <field name="musical_catalog_reference_ids" nolabel="1">
-                                        <tree editable="top">
+                                        <list editable="top">
                                             <field name="sequence" widget="handle"/>
                                             <field name="catalog_id"/>
                                             <field name="code"/>
-                                        </tree>
+                                        </list>
                                     </field>
                                 </group>
                             </group>
@@ -129,27 +102,26 @@
                             <group>
                                 <field name="next_volume_number" invisible="1"/>
                                 <field name="next_track_number" invisible="1"/>
-                                <field name="track_ids" nolabel="1" colspan="2"
-                                        context="{'default_volume': next_volume_number, 'default_track': next_track_number}">
-                                    <tree editable="bottom">
+                                <field name="track_ids" nolabel="1" colspan="2" context="{'default_volume': next_volume_number, 'default_track': next_track_number}">
+                                    <list editable="bottom">
                                         <field name="sequence" widget="handle"/>
                                         <field name="volume" required="1"/>
                                         <field name="track" required="1"/>
                                         <field name="recording_id" domain="[('ttype', '=', 'sound')]" required="1"/>
-                                    </tree>
+                                    </list>
                                 </field>
                                 <field name="number_of_tracks"/>
                             </group>
                         </page>
-                        <page name="other_isrc" string="Other ISRC"  attrs="{'invisible': [('ttype', '=', 'group')]}">
+                        <page name="other_isrc" string="Other ISRC" attrs="{'invisible': [('ttype', '=', 'group')]}">
                             <group>
                                 <field name="other_isrc_ids" nolabel="1">
-                                    <tree editable="top">
+                                    <list editable="top">
                                         <field name="sequence" widget="handle"/>
                                         <field name="isrc"/>
                                         <field name="partner_id" required="1"/>
                                         <field name="notes"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </group>
                         </page>
@@ -184,7 +156,7 @@
                 <filter string="Group of Recordings" name="ttype_group" domain="[('ttype', '=', 'group')]"/>
                 <separator/>
                 <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
-           </search>
+            </search>
         </field>
     </record>
 
@@ -192,8 +164,8 @@
         <field name="name">Recordings</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">recording</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="recording_list"/>
         <field name="search_view_id" ref="recording_search"/>
     </record>

@@ -26,11 +26,11 @@
         <field name="name">Project Service Fee Tree</field>
         <field name="model">project.service.fee</field>
         <field name="arch" type="xml">
-            <tree string="Project Service Fees">
+            <list string="Project Service Fees">
                 <field name="project_id"/>
                 <field name="segment_id"/>
                 <field name="price"/>
-            </tree>
+            </list>
         </field>
     </record>
 

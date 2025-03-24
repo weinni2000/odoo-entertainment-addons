@@ -25,11 +25,11 @@
         <field name="name">Subplatform Mapping List</field>
         <field name="model">recording.subplatform.mapping</field>
         <field name="arch" type="xml">
-            <tree string="Subplatform Mapping" editable="top">
+            <list string="Subplatform Mapping" editable="top">
                 <field name="label"/>
                 <field name="platform_id"/>
                 <field name="subplatform_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -41,7 +41,7 @@
                 <field name="label"/>
                 <field name="platform_id"/>
                 <field name="subplatform_id"/>
-           </search>
+            </search>
         </field>
     </record>
 
@@ -49,8 +49,8 @@
         <field name="name">Subplatform Mapping</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">recording.subplatform.mapping</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="recording_subplatform_mapping_list"/>
         <field name="search_view_id" ref="recording_subplatform_mapping_search"/>
     </record>

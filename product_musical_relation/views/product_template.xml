@@ -31,11 +31,11 @@
                     attrs="{'invisible': [('recording_id', '=', False)]}"/>
                 <label for="musical_catalog_reference_ids" string="External Catalogs"/>
                 <field name="musical_catalog_reference_ids" nolabel="1">
-                    <tree editable="top">
+                    <list editable="top">
                         <field name="sequence" widget="handle"/>
                         <field name="catalog_id"/>
                         <field name="code"/>
-                    </tree>
+                    </list>
                 </field>
             </group>
             <group name="group_standard_price" position="inside">

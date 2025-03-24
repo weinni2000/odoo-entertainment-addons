@@ -20,9 +20,9 @@
         <field name="model">recording.external.revenue</field>
         <field name="inherit_id" ref="recording_external_revenue.recording_external_revenue_list"/>
         <field name="arch" type="xml">
-            <tree position="inside">
+            <list position="inside">
                 <field name="is_posted"/>
-            </tree>
+            </list>
         </field>
     </record>
 

@@ -19,12 +19,12 @@
                                 nolabel="1"
                                 colspan="1"
                                 >
-                                <tree editable="bottom">
+                                <list editable="bottom">
                                     <field name="sequence" widget="handle"/>
                                     <field name="type_id"/>
                                     <field name="unit_amount"/>
                                     <field name="currency_id" invisible="1"/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                     </group>
@@ -39,11 +39,11 @@
                                 nolabel="1"
                                 colspan="2"
                                 >
-                                <tree editable="bottom">
+                                <list editable="bottom">
                                     <field name="sequence" widget="handle"/>
                                     <field name="type_id"/>
                                     <field name="quantity"/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                         <newline/>
@@ -68,14 +68,14 @@
                             nolabel="1"
                             colspan="2"
                             >
-                            <tree>
+                            <list>
                                 <field name="partner_id"/>
                                 <field name="type_id"/>
                                 <field name="quantity"/>
                                 <field name="unit_amount"/>
                                 <field name="total"/>
                                 <field name="currency_id" invisible="1"/>
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     <label for="show_perdiem_note"/>

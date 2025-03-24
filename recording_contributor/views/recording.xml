@@ -17,12 +17,12 @@
                         </group>
                     </group>
                     <field name="contributor_ids" nolabel="1" colspan="2">
-                        <tree editable="bottom">
+                        <list editable="bottom">
                             <field name="sequence" widget="handle"/>
                             <field name="partner_id"/>
                             <field name="role_id"/>
                             <field name="date"/>
-                        </tree>
+                        </list>
                     </field>
                 </page>
             </page>

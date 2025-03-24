@@ -25,11 +25,11 @@
         <field name="name">Journal Mapping List</field>
         <field name="model">recording.journal.mapping</field>
         <field name="arch" type="xml">
-            <tree string="Journal Mapping" editable="top">
+            <list string="Journal Mapping" editable="top">
                 <field name="currency_id"/>
                 <field name="company_id"/>
                 <field name="journal_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -41,7 +41,7 @@
                 <field name="currency_id"/>
                 <field name="company_id"/>
                 <field name="journal_id"/>
-           </search>
+            </search>
         </field>
     </record>
 
@@ -49,8 +49,8 @@
         <field name="name">Journal Mapping</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">recording.journal.mapping</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="recording_journal_mapping_list"/>
         <field name="search_view_id" ref="recording_journal_mapping_search"/>
     </record>

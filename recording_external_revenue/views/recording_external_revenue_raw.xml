@@ -80,7 +80,7 @@
         <field name="name">Recording External Revenue Raw List</field>
         <field name="model">recording.external.revenue.raw</field>
         <field name="arch" type="xml">
-            <tree string="Recording External Revenue Raw">
+            <list string="Recording External Revenue Raw">
                 <field name="id_string" string="ID"/>
                 <field name="country"/>
                 <field name="platform"/>
@@ -92,7 +92,7 @@
                 <field name="gross_amount"/>
                 <field name="currency"/>
                 <field name="is_converted"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -134,10 +134,8 @@
                 <separator/>
                 <filter string="Operation Date" name="operation_date" date="operation_date"/>
                 <separator/>
-                <filter name="converted" string="Converted"
-                        domain="[('is_converted', '=', True)]"/>
-                <filter name="unconverted" string="Unconverted"
-                        domain="[('is_converted', '=', False)]"/>
+                <filter name="converted" string="Converted" domain="[('is_converted', '=', True)]"/>
+                <filter name="unconverted" string="Unconverted" domain="[('is_converted', '=', False)]"/>
                 <separator/>
             </search>
         </field>
@@ -147,8 +145,8 @@
         <field name="name">Raw Data</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">recording.external.revenue.raw</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,pivot,graph,form</field>
+
+        <field name="view_mode">list,pivot,graph,form</field>
         <field name="view_id" ref="recording_external_revenue_raw_list"/>
         <field name="search_view_id" ref="recording_external_revenue_raw_search"/>
     </record>

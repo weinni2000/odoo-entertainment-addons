@@ -11,12 +11,12 @@
                 <page string="Team" name="team" attrs="{'invisible': [('show_type', '=', 'standard')]}">
                     <group>
                         <field name="show_member_ids" nolabel="1">
-                            <tree editable="bottom">
+                            <list editable="bottom">
                                 <field name="sequence" widget="handle"/>
                                 <field name="partner_id"/>
                                 <field name="role_id"/>
                                 <field name="main_artist"/>
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     <label for="show_members_note"/>

@@ -5,11 +5,11 @@
         <field name="name">project.show.role.tree.view</field>
         <field name="model">project.show.role</field>
         <field name="arch" type="xml">
-            <tree string="Tour Roles" editable="bottom">
+            <list string="Tour Roles" editable="bottom">
                 <field name="name"/>
                 <field name="main_artist"/>
                 <field name="active"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -28,8 +28,8 @@
         <field name="name">Tour Roles</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">project.show.role</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+
+        <field name="view_mode">list,form</field>
         <field name="search_view_id" ref="project_show_role_search_view"/>
     </record>
 

@@ -38,19 +38,19 @@
                             <group col="1">
                                 <label for="ticket_price_ids"/>
                                 <field name="ticket_price_ids" nolabel="1">
-                                    <tree editable="bottom">
+                                    <list editable="bottom">
                                         <field name="segment_id"/>
                                         <field name="price"/>
                                         <field name="currency_id" invisible="1"/>
-                                    </tree>
+                                    </list>
                                 </field>
                                 <label for="service_fee_ids"/>
                                 <field name="service_fee_ids" nolabel="1">
-                                    <tree editable="bottom">
+                                    <list editable="bottom">
                                         <field name="segment_id"/>
                                         <field name="price"/>
                                         <field name="currency_id" invisible="1"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </group>
                         </group>

@@ -29,10 +29,10 @@
                         </group>
                         <group string="Other Organizations">
                             <field name="organization_ids" nolabel="1">
-                                <tree editable="top">
+                                <list editable="top">
                                     <field name="name"/>
                                     <field name="number"/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                     </group>

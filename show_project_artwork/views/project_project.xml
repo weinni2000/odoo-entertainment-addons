@@ -13,9 +13,9 @@
                     attrs="{'invisible': [('show_type', 'not in', ('tour', 'show'))]}"
                     >
                     <field name="artwork_ids" nolabel="1">
-                        <tree>
+                        <list>
                             <field name="display_name"/>
-                        </tree>
+                        </list>
                     </field>
                     <label for="artwork_note"/>
                     <newline/>
