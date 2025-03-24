@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <odoo>
 
     <record id="project_form" model="ir.ui.view">
@@ -17,67 +17,112 @@
 
             <!-- Mark readonly Name field when project type is show -->
             <field name="name" position="attributes">
-                <attribute name="attrs">{'readonly': [('show_type', '=', 'show')]}</attribute>
+                <attribute name="readonly">show_type == 'show'</attribute>
+                <!--TODO: Result from converting 'attrs' attribute override without options for ['invisible', 'required', 'column_invisible'] to separate attributes
+                     Remove redundant empty tags below for any of those attributes that are not present in the field tag in any of the parent views
+                     If someone later adds one of these attributes in the parent views, they would likely be unaware it's still overridden in this view, resulting in unexpected behaviour, which should be avoided-->
+                <!--TODO: Result from 'attrs' -> 'invisible' conversion without also overriding 'states' attribute
+                     Check if this field tag contained a states attribute in any of the parent views, that should be combined into this 'invisible' attribute
+                     (If any states attributes existed in parent views, they'll also be marked with a TODO)-->
+                <attribute name="invisible"/>
+                <attribute name="required"/>
+                <attribute name="column_invisible"/>
                 <attribute name="force_save">1</attribute>
             </field>
 
             <!-- Hide Parent Project field when project type is tour -->
             <!-- Parent Project is required when project type is show -->
             <field name="parent_id" position="attributes">
-                <attribute name="attrs" operation="python_dict" key="invisible">
-                    ['|', ('is_parent', '=', True), ('show_type', '=', 'tour')]
-                </attribute>
-                <attribute name="attrs" operation="python_dict" key="required">
-                    [('show_type', '=', 'show')]
-                </attribute>
+                <!--TODO: Result from converting 'attrs' attribute override without options for ['invisible', 'required', 'readonly', 'column_invisible'] to separate attributes
+                     Remove redundant empty tags below for any of those attributes that are not present in the field tag in any of the parent views
+                     If someone later adds one of these attributes in the parent views, they would likely be unaware it's still overridden in this view, resulting in unexpected behaviour, which should be avoided-->
+                <!--TODO: Result from 'attrs' -> 'invisible' conversion without also overriding 'states' attribute
+                     Check if this field tag contained a states attribute in any of the parent views, that should be combined into this 'invisible' attribute
+                     (If any states attributes existed in parent views, they'll also be marked with a TODO)-->
+                <attribute name="invisible"/>
+                <attribute name="required"/>
+                <attribute name="readonly"/>
+                <attribute name="column_invisible"/>
             </field>
 
             <!-- Hide Customer field when project type is tour -->
             <field name="partner_id" position="attributes">
-                <attribute name="attrs">{
-                    'invisible': [('show_type', '=', 'tour')]
-                    }</attribute>
+                <!--TODO: Result from 'attrs' -> 'invisible' conversion without also overriding 'states' attribute
+                     Check if this field tag contained a states attribute in any of the parent views, in which case it should be combined into this 'invisible' attribute
+                     (If any states attributes existed in parent views, they'll also be marked with a TODO)-->
+                <attribute name="invisible">show_type == 'tour'</attribute>
+                <!--TODO: Result from converting 'attrs' attribute override without options for ['required', 'readonly', 'column_invisible'] to separate attributes
+                     Remove redundant empty tags below for any of those attributes that are not present in the field tag in any of the parent views
+                     If someone later adds one of these attributes in the parent views, they would likely be unaware it's still overridden in this view, resulting in unexpected behaviour, which should be avoided-->
+                <attribute name="required"/>
+                <attribute name="readonly"/>
+                <attribute name="column_invisible"/>
             </field>
 
             <!-- Hide project_type field when project not show -->
             <field name="project_type_id" position="attributes">
-                <attribute name="attrs">{
-                    'invisible': [('show_type', '!=', 'show')]
-                    }</attribute>
+                <!--TODO: Result from 'attrs' -> 'invisible' conversion without also overriding 'states' attribute
+                     Check if this field tag contained a states attribute in any of the parent views, in which case it should be combined into this 'invisible' attribute
+                     (If any states attributes existed in parent views, they'll also be marked with a TODO)-->
+                <attribute name="invisible">show_type != 'show'</attribute>
+                <!--TODO: Result from converting 'attrs' attribute override without options for ['required', 'readonly', 'column_invisible'] to separate attributes
+                     Remove redundant empty tags below for any of those attributes that are not present in the field tag in any of the parent views
+                     If someone later adds one of these attributes in the parent views, they would likely be unaware it's still overridden in this view, resulting in unexpected behaviour, which should be avoided-->
+                <attribute name="required"/>
+                <attribute name="readonly"/>
+                <attribute name="column_invisible"/>
             </field>
 
             <!-- Add fields in configuration tab and only visible when project type is show -->
             <field name="user_id" position="before">
-                <field name="showcase" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
-                <field name="formula" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+                <field name="showcase" invisible="show_type != 'show'"/>
+                <field name="formula" invisible="show_type != 'show'"/>
             </field>
             <field name="partner_id" position="after">
-                <field name="recording" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
-                <field name="producer_id" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+                <field name="recording" invisible="show_type != 'show'"/>
+                <field name="producer_id" invisible="show_type != 'show'"/>
             </field>
 
             <!-- Only show date_start and date fields when project type is standard or tour -->
             <field name="date_start" position="attributes">
-                <attribute name="attrs">{'invisible': [('show_type', '=', 'show')]}</attribute>
+                <!--TODO: Result from 'attrs' -> 'invisible' conversion without also overriding 'states' attribute
+                     Check if this field tag contained a states attribute in any of the parent views, in which case it should be combined into this 'invisible' attribute
+                     (If any states attributes existed in parent views, they'll also be marked with a TODO)-->
+                <attribute name="invisible">show_type == 'show'</attribute>
+                <!--TODO: Result from converting 'attrs' attribute override without options for ['required', 'readonly', 'column_invisible'] to separate attributes
+                     Remove redundant empty tags below for any of those attributes that are not present in the field tag in any of the parent views
+                     If someone later adds one of these attributes in the parent views, they would likely be unaware it's still overridden in this view, resulting in unexpected behaviour, which should be avoided-->
+                <attribute name="required"/>
+                <attribute name="readonly"/>
+                <attribute name="column_invisible"/>
             </field>
 
             <field name="date" position="attributes">
-                <attribute name="attrs">{'invisible': [('show_type', '=', 'show')]}</attribute>
+                <!--TODO: Result from 'attrs' -> 'invisible' conversion without also overriding 'states' attribute
+                     Check if this field tag contained a states attribute in any of the parent views, in which case it should be combined into this 'invisible' attribute
+                     (If any states attributes existed in parent views, they'll also be marked with a TODO)-->
+                <attribute name="invisible">show_type == 'show'</attribute>
+                <!--TODO: Result from converting 'attrs' attribute override without options for ['required', 'readonly', 'column_invisible'] to separate attributes
+                     Remove redundant empty tags below for any of those attributes that are not present in the field tag in any of the parent views
+                     If someone later adds one of these attributes in the parent views, they would likely be unaware it's still overridden in this view, resulting in unexpected behaviour, which should be avoided-->
+                <attribute name="required"/>
+                <attribute name="readonly"/>
+                <attribute name="column_invisible"/>
             </field>
 
             <!-- Add new field show_date under date field -->
             <field name="date" position="after">
-                <field name="show_date" attrs="{'invisible': [('show_type', '!=', 'show')], 'required': [('show_type', '=', 'show')]}"/>
-                <field name="artist_id" attrs="{'required': [('show_type', '=', 'show')]}"/>
+                <field name="show_date" invisible="show_type != 'show'" required="show_type == 'show'"/>
+                <field name="artist_id" required="show_type == 'show'"/>
             </field>
 
             <!-- Add new tab `Show Place` when project type is `show` -->
             <xpath expr="//page[@name='settings']" position="after">
-                <page string="Show Venue" name="show_venue" attrs="{'invisible': [('show_type', '!=', 'show')]}">
+                <page string="Show Venue" name="show_venue" invisible="show_type != 'show'">
                     <group>
                         <group>
-                            <field name="show_place_id" attrs="{'required': [('show_type', '=', 'show')]}"/>
-                            <field name="city" />
+                            <field name="show_place_id" required="show_type == 'show'"/>
+                            <field name="city"/>
                             <field name="show_place_configuration_id" string="Configuration"/>
                             <field name="show_place_configuration"/>
                             <field name="show_place_maximum_capacity"/>

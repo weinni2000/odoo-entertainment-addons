@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <odoo>
     <record id="recording_musical_artwork_form" model="ir.ui.view">
         <field name="name">Recording Musical Artwork Form</field>
@@ -6,11 +6,8 @@
         <field name="inherit_id" ref="recording.recording_form"/>
         <field name="arch" type="xml">
             <field name="sound_recording_id" position="before">
-                <field name="musical_artwork_id"
-                       attrs="{'invisible': [('ttype', '!=', 'sound')]}"
-                       />
+                <field name="musical_artwork_id" invisible="ttype != 'sound'"/>
             </field>
         </field>
     </record>
 </odoo>
-

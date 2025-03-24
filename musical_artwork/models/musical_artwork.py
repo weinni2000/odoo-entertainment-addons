@@ -96,4 +96,4 @@ class MusicalArtworkWithDistributionKeys(models.Model):
         for artwork in self:
             artwork.distribution_key_count = self.env[
                 "musical.artwork.distribution"
-            ].search([("musical_artwork_id", "=", artwork.id)], count=True)
+            ].search_count([("musical_artwork_id", "=", artwork.id)])

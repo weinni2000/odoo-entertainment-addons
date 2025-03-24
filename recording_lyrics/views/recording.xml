@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <odoo>
 
     <record id="recording_form_with_lyrics" model="ir.ui.view">
@@ -7,14 +7,14 @@
         <field name="inherit_id" ref="recording.recording_form"/>
         <field name="arch" type="xml">
             <field name="group_duration" position="after">
-                <field name="language_id" attrs="{'invisible': [('ttype', '!=', 'group')]}"/>
+                <field name="language_id" invisible="ttype != 'group'"/>
             </field>
 
             <page name="tracks" position="before">
-                <page name="lyrics" string="Lyrics" attrs="{'invisible': [('ttype', 'not in', ('sound', 'video'))]}">
+                <page name="lyrics" string="Lyrics" invisible="ttype not in ('sound', 'video')">
                     <group>
                         <group>
-                            <field name="language_ids" nolabel="1" attrs="{'readonly': [('ttype', '=', 'video')]}">
+                            <field name="language_ids" nolabel="1" readonly="ttype == 'video'">
                                 <list editable="bottom">
                                     <field name="sequence" widget="handle"/>
                                     <field name="language_id"/>
@@ -28,7 +28,7 @@
                                 </form>
                             </field>
                         </group>
-                        <field name="lyrics" nolabel="1" colspan="2" attrs="{'readonly': [('ttype', '=', 'video')]}"/>
+                        <field name="lyrics" nolabel="1" colspan="2" readonly="ttype == 'video'"/>
                     </group>
                 </page>
             </page>

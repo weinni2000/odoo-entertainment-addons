@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <odoo>
 
     <record id="recording_form_with_genre" model="ir.ui.view">
@@ -7,9 +7,7 @@
         <field name="inherit_id" ref="recording.recording_form"/>
         <field name="arch" type="xml">
             <div name="right_column" position="inside">
-                <group name="genre" string="Genre"
-                    attrs="{'invisible': [('ttype', 'not in', ('sound', 'group'))]}"
-                    >
+                <group name="genre" string="Genre" invisible="ttype not in ('sound', 'group')">
                     <field name="explicit_content"/>
                     <field name="genre_id"/>
                 </group>

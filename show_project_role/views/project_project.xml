@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <odoo>
 
     <record id="project_form" model="ir.ui.view">
@@ -8,7 +8,7 @@
         <field name="priority">18</field>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='settings']" position="after">
-                <page string="Team" name="team" attrs="{'invisible': [('show_type', '=', 'standard')]}">
+                <page string="Team" name="team" invisible="show_type == 'standard'">
                     <group>
                         <field name="show_member_ids" nolabel="1">
                             <list editable="bottom">

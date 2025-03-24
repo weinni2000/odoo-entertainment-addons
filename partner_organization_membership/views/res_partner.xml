@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <odoo>
 
     <record id="res_partner_view_form_inherit_partner_artist" model="ir.ui.view">
@@ -8,13 +8,12 @@
         <field name="arch" type="xml">
             <xpath expr="//div[hasclass('o_row')]" position="after">
                 <div>
-                    <field name="is_artist" attrs="{'invisible': [('company_type', '=', 'company')]}"/>
-                    <label for="is_artist"
-                           attrs="{'invisible': [('company_type', '=', 'company')]}"/>
+                    <field name="is_artist" invisible="company_type == 'company'"/>
+                    <label for="is_artist" invisible="company_type == 'company'"/>
                 </div>
             </xpath>
             <xpath expr="//page[@name='sales_purchases']" position="after">
-                <page string="Management Organization" attrs="{'invisible': [('is_artist', '=', False)]}">
+                <page string="Management Organization" invisible="not is_artist">
                     <group>
                         <group string="Management Organizations">
                             <field name="guilde"/>
@@ -37,14 +36,14 @@
                         </group>
                     </group>
                 </page>
-                <page string="Creator Identifiers" attrs="{'invisible': [('is_artist', '=', False)]}">
+                <page string="Creator Identifiers" invisible="not is_artist">
                     <group>
                         <group string="Identifiers">
                             <field name="isni"/>
                             <field name="ipi"/>
                             <field name="ipn"/>
                         </group>
-                        <group></group>
+                        <group/>
                         <group string="Others Informations">
                             <group>
                                 <field name="is_canadian_artist"/>
@@ -57,7 +56,7 @@
                                 <field name="is_visible_minority"/>
                             </group>
                         </group>
-                        <group></group>
+                        <group/>
                         <group>
                             <field name="birth_city_id" options="{'no_open':True, 'no_create': True, 'no_edit': True}"/>
                         </group>

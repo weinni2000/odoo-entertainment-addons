@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <odoo>
 
     <record id="project_form" model="ir.ui.view">
@@ -7,13 +7,9 @@
         <field name="inherit_id" ref="show_project.project_form"/>
         <field name="arch" type="xml">
             <page name="show_venue" position="before">
-                <page
-                    string="Promotion"
-                    name="show_promotion"
-                    attrs="{'invisible': [('show_type', 'not in', ('tour', 'show'))]}"
-                    >
+                <page string="Promotion" name="show_promotion" invisible="show_type not in ('tour', 'show')">
                     <group>
-                        <group attrs="{'invisible': [('show_type', '!=', 'show')]}">
+                        <group invisible="show_type != 'show'">
                             <field name="announcement_date"/>
                             <field name="show_sale_date"/>
                             <field name="distributor_platform_url" widget="url"/>

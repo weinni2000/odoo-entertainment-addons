@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <odoo>
 
     <record id="action_sale_order_from_project" model="ir.actions.act_window">
@@ -16,19 +16,10 @@
         <field name="inherit_id" ref="project.edit_project"/>
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
-                <button name="action_create_sale_order_show"
-                        type="object"
-                        string="Create Sale"
-                        class="btn btn-secondary"
-                        attrs="{'invisible': ['|', ('show_type', '!=', 'show'), ('check_so_exist', '=', True)]}"/>
+                <button name="action_create_sale_order_show" type="object" string="Create Sale" class="btn btn-secondary" invisible="show_type != 'show' or check_so_exist"/>
             </xpath>
             <button name="toggle_active" position="before">
-                <button name="%(action_sale_order_from_project)d"
-                    type="action"
-                    class="oe_stat_button"
-                    icon="fa-usd"
-                    attrs="{'invisible': [('show_type', '!=', 'show')]}"
-                    >
+                <button name="%(action_sale_order_from_project)d" type="action" class="oe_stat_button" icon="fa-usd" invisible="show_type != 'show'">
                     <field string="Sale Orders" name="show_sale_order_count" widget="statinfo"/>
                 </button>
             </button>

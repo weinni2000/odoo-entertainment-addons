@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <odoo>
 
     <record id="res_partner_view_form_inherit_show" model="ir.ui.view">
@@ -7,20 +7,12 @@
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <notebook position="inside">
-                <page name="show" string="Show"
-                      attrs="{'invisible': ['|', ('company_type','=','company'),  ('type','!=','show_site')]}">
+                <page name="show" string="Show" invisible="company_type == 'company' or type != 'show_site'">
                     <group>
                         <group>
-                            <field name="show_place_type_id"
-                                   string="Place Type"
-                                   attrs="{'required': [('type','=','show_site')]}"
-                                   />
-                            <field name="show_place_distance_from_productor"
-                                   string="Distance from Productor"
-                                   />
-                            <field name="show_place_stage"
-                                   string="Stage"
-                                   />
+                            <field name="show_place_type_id" string="Place Type" required="type == 'show_site'"/>
+                            <field name="show_place_distance_from_productor" string="Distance from Productor"/>
+                            <field name="show_place_stage" string="Stage"/>
                         </group>
                         <group/>
                     </group>
@@ -40,7 +32,7 @@
                     </group>
                     <group>
                         <group/>
-                        <label for="show_place_notes"  string="Notes"/>
+                        <label for="show_place_notes" string="Notes"/>
                         <field name="show_place_notes"/>
                     </group>
                 </page>

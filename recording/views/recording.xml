@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <odoo>
 
     <record id="related_group_recordings_action" model="ir.actions.act_window">
@@ -43,14 +43,14 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="%(related_group_recordings_action)d" type="action" class="oe_stat_button" icon="fa-play-circle-o" attrs="{'invisible': [('ttype', '!=', 'sound')]}">
+                        <button name="%(related_group_recordings_action)d" type="action" class="oe_stat_button" icon="fa-play-circle-o" invisible="ttype != 'sound'">
                             <field string="Related Groups" name="related_group_count" widget="statinfo"/>
                         </button>
-                        <button name="%(related_video_recordings_action)d" type="action" class="oe_stat_button" icon="fa-file-video-o" attrs="{'invisible': [('ttype', '!=', 'sound')]}">
+                        <button name="%(related_video_recordings_action)d" type="action" class="oe_stat_button" icon="fa-file-video-o" invisible="ttype != 'sound'">
                             <field string="Related Videos" name="related_video_count" widget="statinfo"/>
                         </button>
                         <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
-                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                            <field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
                         </button>
                     </div>
                     <div class="oe_title">
@@ -64,13 +64,13 @@
                     <group>
                         <group name="recording" string="Recording">
                             <field name="company_id" groups="base.group_multi_company"/>
-                            <field name="sound_recording_id" string="Related Recording" attrs="{'invisible': [('ttype', '!=', 'video')], 'required': [('ttype', '=', 'video')]}" domain="[('ttype', '=', 'sound')]" />
-                            <field name="group_type" string="Type" attrs="{'invisible': [('ttype', '!=', 'group')], 'required': [('ttype', '=', 'group')]}" />
-                            <field name="duration" widget="float_time" attrs="{'invisible': [('ttype', '!=', 'sound')], 'required': [('ttype', '=', 'sound')]}" />
-                            <field name="group_duration" widget="float_time" string="Duration" attrs="{'invisible': [('ttype', '!=', 'group')], 'required': [('ttype', '=', 'group')]}" />
+                            <field name="sound_recording_id" string="Related Recording" invisible="ttype != 'video'" required="ttype == 'video'" domain="[('ttype', '=', 'sound')]"/>
+                            <field name="group_type" string="Type" invisible="ttype != 'group'" required="ttype == 'group'"/>
+                            <field name="duration" widget="float_time" invisible="ttype != 'sound'" required="ttype == 'sound'"/>
+                            <field name="group_duration" widget="float_time" string="Duration" invisible="ttype != 'group'" required="ttype == 'group'"/>
                             <field name="production_start_date"/>
-                            <field name="filming_location" attrs="{'invisible': [('ttype', '!=', 'video')]}" />
-                            <field name="publication_country_id" attrs="{'invisible': [('ttype', '!=', 'group')], 'required': [('ttype', '=', 'group')]}" />
+                            <field name="filming_location" invisible="ttype != 'video'"/>
+                            <field name="publication_country_id" invisible="ttype != 'group'" required="ttype == 'group'"/>
                         </group>
                         <div name="right_column">
                         </div>
@@ -79,10 +79,10 @@
                         <page name="marketing" string="Marketing">
                             <group>
                                 <group>
-                                    <field name="release_date" attrs="{'required': [('ttype', '=', 'group')]}" />
+                                    <field name="release_date" required="ttype == 'group'"/>
                                     <field name="upc"/>
-                                    <field name="upc_packshot" attrs="{'invisible': [('ttype', '!=', 'sound')]}" />
-                                    <field name="isrc" attrs="{'invisible': [('ttype', '=', 'group')]}" />
+                                    <field name="upc_packshot" invisible="ttype != 'sound'"/>
+                                    <field name="isrc" invisible="ttype == 'group'"/>
                                     <field name="commercial_territory_id"/>
                                 </group>
                                 <group>
@@ -98,7 +98,7 @@
                                 </group>
                             </group>
                         </page>
-                        <page name="tracks" string="Related Recordings" attrs="{'invisible': [('ttype', '!=', 'group')]}">
+                        <page name="tracks" string="Related Recordings" invisible="ttype != 'group'">
                             <group>
                                 <field name="next_volume_number" invisible="1"/>
                                 <field name="next_track_number" invisible="1"/>
@@ -113,7 +113,7 @@
                                 <field name="number_of_tracks"/>
                             </group>
                         </page>
-                        <page name="other_isrc" string="Other ISRC" attrs="{'invisible': [('ttype', '=', 'group')]}">
+                        <page name="other_isrc" string="Other ISRC" invisible="ttype == 'group'">
                             <group>
                                 <field name="other_isrc_ids" nolabel="1">
                                     <list editable="top">

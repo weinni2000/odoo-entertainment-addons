@@ -147,18 +147,17 @@ class RecordingSound(models.Model):
 
     def _compute_related_video_count(self):
         for rec in self:
-            rec.related_video_count = self.env["recording"].search(
+            rec.related_video_count = self.env["recording"].search_count(
                 [("sound_recording_id", "=", rec.id), ("ttype", "=", "video")],
-                count=True,
+
             )
 
     related_group_count = fields.Integer(compute="_compute_related_group_count")
 
     def _compute_related_group_count(self):
         for rec in self:
-            rec.related_group_count = self.env["recording"].search(
+            rec.related_group_count = self.env["recording"].search_count(
                 [("track_ids.recording_id", "=", rec.id), ("ttype", "=", "group")],
-                count=True,
             )
 
 

@@ -13,7 +13,6 @@ class MusicalArtwork(models.Model):
 
     def _compute_related_recording_count(self):
         for rec in self:
-            rec.related_recording_count = self.env['recording'].search(
+            rec.related_recording_count = self.env['recording'].search_count(
                 [('musical_artwork_id', '=', rec.id)],
-                count=True
             )

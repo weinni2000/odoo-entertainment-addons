@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <odoo>
 
     <record id="product_musical_relation" model="ir.ui.view">
@@ -10,25 +10,13 @@
                 <group>
                     <group col="3">
                         <field name="musical_relation"/>
-                        <field name="recording_id"
-                               domain="[('ttype', '=', musical_relation)]"
-                               attrs="{
-                                   'readonly': ['|', ('musical_relation', '=', False), ('is_product_variant', '=', True)],
-                                   'required': [('musical_relation', '!=', False), ('is_product_variant', '=', False)],
-                               }"
-                               force_save="1"
-                               nolabel="1"
-                        />
-                        <field name="artist_id"
-                               attrs="{'readonly': ['|', ('recording_id', '!=', False), ('is_product_variant', '=', True)]}"
-                               force_save="1"
-                        />
+                        <field name="recording_id" domain="[('ttype', '=', musical_relation)]" readonly="not musical_relation or is_product_variant" required="musical_relation and not is_product_variant" force_save="1" nolabel="1"/>
+                        <field name="artist_id" readonly="recording_id or is_product_variant" force_save="1"/>
                     </group>
                 </group>
             </notebook>
             <group name="group_general" position="inside">
-                <field name="catalogue_reference" string="Internal Catalog"
-                    attrs="{'invisible': [('recording_id', '=', False)]}"/>
+                <field name="catalogue_reference" string="Internal Catalog" invisible="not recording_id"/>
                 <label for="musical_catalog_reference_ids" string="External Catalogs"/>
                 <field name="musical_catalog_reference_ids" nolabel="1">
                     <list editable="top">
@@ -39,8 +27,7 @@
                 </field>
             </group>
             <group name="group_standard_price" position="inside">
-                <field name="recording_release_date"
-                    attrs="{'invisible': [('recording_id', '=', False)]}"/>
+                <field name="recording_release_date" invisible="not recording_id"/>
                 <field name="sale_date"/>
                 <field name="commercialization_date"/>
             </group>
@@ -58,12 +45,6 @@
         </field>
     </record>
 
-    <menuitem
-            id="menu_recording_product"
-            name="Products"
-            parent="recording.menu_recording_root"
-            action="product.product_template_action_all"
-            sequence="400"
-    />
+    <menuitem id="menu_recording_product" name="Products" parent="recording.menu_recording_root" action="product.product_template_action_all" sequence="400"/>
 
 </odoo>
