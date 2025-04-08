@@ -15,7 +15,7 @@ class RecordingExternalRevenue(models.Model):
         "account.move", ondelete="restrict", readonly=True, copy=False
     )
 
-    @api.multi
+
     def write(self, vals):
         self._check_can_edit_fields_if_posted(vals)
         return super().write(vals)
@@ -58,7 +58,7 @@ class RecordingExternalRevenue(models.Model):
             "tax_id",
         }
 
-    @api.multi
+
     def unlink(self):
         self._check_can_not_unlink_if_posted()
         return super().unlink()

@@ -43,7 +43,7 @@ class RecordingExternalRevenueAbstract(models.AbstractModel):
     commission_amount = fields.Float("Total Commissions Amount")
     net_amount = fields.Float("Total Net Amount (Untaxed)")
 
-    @api.multi
+
     def name_get(self):
         return [(r.id, "#{}".format(r.id)) for r in self]
 

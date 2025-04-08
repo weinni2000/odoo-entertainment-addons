@@ -130,7 +130,7 @@ class MusicalArtworkDistributionTrackedLines(models.Model):
         distribution._log_initial_distribution()
         return distribution
 
-    @api.multi
+
     def write(self, vals):
         super().write(vals)
         if "line_ids" in vals:

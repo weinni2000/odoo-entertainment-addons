@@ -21,7 +21,7 @@ class Recording(models.Model):
         for rec in self:
             rec.related_product_count = len(rec.product_template_ids)
 
-    @api.multi
+
     def write(self, vals):
         super().write(vals)
         if 'artist_id' in vals:

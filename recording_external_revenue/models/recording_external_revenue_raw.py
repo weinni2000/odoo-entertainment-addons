@@ -37,12 +37,12 @@ class RecordingExternalRevenueRaw(models.Model):
     currency = fields.Char(index=True, required=True)
     tax = fields.Char()
 
-    @api.multi
+
     def write(self, vals):
         self._check_can_edit_fields(vals)
         return super().write(vals)
 
-    @api.multi
+
     def unlink(self):
         self._check_can_unlink()
         return super().unlink()

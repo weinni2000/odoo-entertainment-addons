@@ -20,7 +20,7 @@ class Project(models.Model):
         for project in self:
             project.show_sale_order_count = len(project.show_sale_order_ids)
 
-    @api.multi
+
     @api.depends("show_sale_order_ids", "show_sale_order_ids.state")
     def _compute_check_so_exist(self):
         for p in self:
@@ -28,7 +28,7 @@ class Project(models.Model):
                     len(p.show_sale_order_ids.filtered(lambda s: s.state != "cancel")) > 0
             )
 
-    @api.multi
+
     def action_create_sale_order_show(self):
         self.ensure_one()
         SaleOrderType = self.env["sale.order.type"]

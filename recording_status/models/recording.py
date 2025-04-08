@@ -15,13 +15,13 @@ class Recording(models.Model):
         track_visibility="onchange",
     )
 
-    @api.multi
+
     def write(self, vals):
         if not self.env.user.has_group("recording.group_manager"):
             vals.update({"state": "to_validate"})
         return super().write(vals)
 
-    @api.multi
+
     def action_validate(self):
         if not self.env.user.has_group("recording.group_manager"):
             raise AccessError(_("You don't have access to validate."))

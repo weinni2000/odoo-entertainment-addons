@@ -3,7 +3,8 @@
 
 import pytest
 from odoo.exceptions import ValidationError
-from odoo.tests.common import SavepointCase
+#from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 from ..isrc import check_isrc_code
 
 
@@ -36,7 +37,7 @@ def test_code_must_have_12_chars(code):
         check_isrc_code(code, {})
 
 
-class TestRecording(SavepointCase):
+class TestRecording(TransactionCase):
 
     @classmethod
     def setUpClass(cls):

@@ -3,12 +3,13 @@
 
 import pytest
 from ddt import ddt, data, unpack
-from odoo.tests.common import SavepointCase
+#from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 from odoo.exceptions import ValidationError
 
 
 @ddt
-class TestRecording(SavepointCase):
+class TestRecording(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -64,7 +65,7 @@ class TestRecording(SavepointCase):
         assert self.group_1.next_track_number == "1"
 
 
-class TestRecordingGroup(SavepointCase):
+class TestRecordingGroup(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -118,7 +119,7 @@ class TestRecordingGroup(SavepointCase):
         assert 2 == len(self.group_1.track_ids)
 
 
-class TestRecordingUniqueConstrains(SavepointCase):
+class TestRecordingUniqueConstrains(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

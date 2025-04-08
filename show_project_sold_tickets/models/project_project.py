@@ -11,7 +11,7 @@ class ProjectProject(models.Model):
         comodel_name="show.ticket.sold", inverse_name="show_id"
     )
 
-    @api.multi
+
     def _update_new_sold_tickets(self):
         for project in self:
             total_sold_tickets_previous = 0

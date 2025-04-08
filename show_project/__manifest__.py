@@ -11,9 +11,9 @@
     "installable": True,
     "depends": [
         # Numigi-Project
-        "project_iteration",
-        "project_form_with_dates",
-        "project_type",
+        # "project_iteration", # MOD
+        # "project_form_with_dates", # MOD
+        # "project_type",
         # OCA-server-tool
         "base_view_inheritance_extension",
         # Numigi-Entertainment

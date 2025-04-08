@@ -56,7 +56,7 @@ class ShowTicketSold(models.Model):
         )
     ]
 
-    @api.multi
+
     @api.depends("show_id.artist_favour_tickets", "show_id.diffisor_favour_tickets")
     def _compute_favour_tickets(self):
         for t in self:
@@ -65,7 +65,7 @@ class ShowTicketSold(models.Model):
                 show_id.artist_favour_tickets + show_id.diffisor_favour_tickets
             )
 
-    @api.multi
+
     @api.depends("show_place_maximum_capacity", "favour_tickets", "total_sold_tickets")
     def _compute_sold_tickets(self):
         for t in self:
@@ -81,7 +81,7 @@ class ShowTicketSold(models.Model):
         res.show_id._update_new_sold_tickets()
         return res
 
-    @api.multi
+
     def write(self, vals):
         res = super().write(vals)
         if not self._context.get("skip_update_new_sold_tickets"):
@@ -100,7 +100,7 @@ class ShowTicketSold(models.Model):
             domain, fields, groupby, offset, limit, orderby, lazy
         )
 
-    @api.multi
+
     def unlink(self):
         projects = self.mapped("show_id")
         res = super().unlink()

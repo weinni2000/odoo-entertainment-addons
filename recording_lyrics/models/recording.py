@@ -27,7 +27,7 @@ class Recording(models.Model):
 
         return record
 
-    @api.multi
+
     def write(self, vals):
         super().write(vals)
 

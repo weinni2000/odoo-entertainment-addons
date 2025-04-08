@@ -27,7 +27,7 @@ class SaleOrder(models.Model):
     def onchange_show_project(self):
         self.analytic_account_id = self.show_project_id.analytic_account_id
 
-    @api.multi
+
     @api.constrains("show_project_id")
     def _check_unique_so(self):
         for so in self:

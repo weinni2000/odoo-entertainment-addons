@@ -32,18 +32,22 @@
 
             <!-- Hide Parent Project field when project type is tour -->
             <!-- Parent Project is required when project type is show -->
-            <field name="parent_id" position="attributes">
-                <!--TODO: Result from converting 'attrs' attribute override without options for ['invisible', 'required', 'readonly', 'column_invisible'] to separate attributes
+            <!--TODO: Result from converting 'attrs' attribute override without options for ['invisible', 'required', 'readonly', 'column_invisible'] to separate attributes
                      Remove redundant empty tags below for any of those attributes that are not present in the field tag in any of the parent views
                      If someone later adds one of these attributes in the parent views, they would likely be unaware it's still overridden in this view, resulting in unexpected behaviour, which should be avoided-->
-                <!--TODO: Result from 'attrs' -> 'invisible' conversion without also overriding 'states' attribute
+            <!--TODO: Result from 'attrs' -> 'invisible' conversion without also overriding 'states' attribute
                      Check if this field tag contained a states attribute in any of the parent views, that should be combined into this 'invisible' attribute
                      (If any states attributes existed in parent views, they'll also be marked with a TODO)-->
+
+            <!--
+            <field name="parent_id" position="attributes">
+
                 <attribute name="invisible"/>
                 <attribute name="required"/>
                 <attribute name="readonly"/>
                 <attribute name="column_invisible"/>
             </field>
+                 -->
 
             <!-- Hide Customer field when project type is tour -->
             <field name="partner_id" position="attributes">
@@ -60,19 +64,23 @@
             </field>
 
             <!-- Hide project_type field when project not show -->
-            <field name="project_type_id" position="attributes">
-                <!--TODO: Result from 'attrs' -> 'invisible' conversion without also overriding 'states' attribute
+            <!--TODO: Result from 'attrs' -> 'invisible' conversion without also overriding 'states' attribute
                      Check if this field tag contained a states attribute in any of the parent views, in which case it should be combined into this 'invisible' attribute
                      (If any states attributes existed in parent views, they'll also be marked with a TODO)-->
-                <attribute name="invisible">show_type != 'show'</attribute>
-                <!--TODO: Result from converting 'attrs' attribute override without options for ['required', 'readonly', 'column_invisible'] to separate attributes
+            <!--TODO: Result from converting 'attrs' attribute override without options for ['required', 'readonly', 'column_invisible'] to separate attributes
                      Remove redundant empty tags below for any of those attributes that are not present in the field tag in any of the parent views
                      If someone later adds one of these attributes in the parent views, they would likely be unaware it's still overridden in this view, resulting in unexpected behaviour, which should be avoided-->
+
+            <!--
+            <field name="project_type_id" position="attributes">
+
+                <attribute name="invisible">show_type != 'show'</attribute>
+
                 <attribute name="required"/>
                 <attribute name="readonly"/>
                 <attribute name="column_invisible"/>
             </field>
-
+-->
             <!-- Add fields in configuration tab and only visible when project type is show -->
             <field name="user_id" position="before">
                 <field name="showcase" invisible="show_type != 'show'"/>

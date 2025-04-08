@@ -10,7 +10,9 @@
     "license": "LGPL-3",
     "category": "Entertainment",
     "summary": "Add Show Place Types/Configuration",
-    "depends": ["contacts", "partner_contact_type_visible", "sales_team", "project"],
+    "depends": ["contacts",
+    #"partner_contact_type_visible", #MOD
+    "sales_team", "project",],
     "data": [
         "security/ir.model.access.csv",
         "views/res_partner.xml",

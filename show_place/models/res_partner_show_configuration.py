@@ -21,6 +21,6 @@ class ResPartnerShowConfiguration(models.Model):
         help="Check this box if this place has a restriction for minors.",
     )
 
-    @api.multi
+
     def name_get(self):
         return [(r.id, f"{r.name} - {r.maximum_capacity}") for r in self]

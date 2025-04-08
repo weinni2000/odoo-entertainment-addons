@@ -49,7 +49,7 @@ class ProductTemplate(models.Model):
             product._propagate_artist_from_recording()
         return product
 
-    @api.multi
+
     def write(self, vals):
         super().write(vals)
         if 'recording_id' in vals:

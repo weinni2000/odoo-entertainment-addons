@@ -39,10 +39,10 @@ class ProjectProject(models.Model):
     show_place_stage = fields.Selection([("indoor", "Indoor"), ("outdoor", "Outdoor")])
     show_place_notes = fields.Text()
     previous_show_id = fields.Many2one(
-        comodel_name="project.project", compute="_compute_previous_and_next_show_id"
+        comodel_name="project.project",  # compute="_compute_previous_and_next_show_id"
     )
     next_show_id = fields.Many2one(
-        comodel_name="project.project", compute="_compute_previous_and_next_show_id"
+        comodel_name="project.project",  # compute="_compute_previous_and_next_show_id"
     )
 
     recording = fields.Boolean(default=False)
@@ -63,6 +63,8 @@ class ProjectProject(models.Model):
                 parent_show_type = "tour"
             project.expected_parent_show_type = parent_show_type
 
+
+    """
     @api.depends(
         "parent_id",
         "parent_id.child_ids",
@@ -95,13 +97,13 @@ class ProjectProject(models.Model):
             else:
                 project.previous_show_id = False
                 project.next_show_id = False
-
+"""
     @api.model
     def create(self, vals):
         vals = self._set_show_type_vals(vals)
         return super(ProjectProject, self).create(vals)
 
-    @api.multi
+
     def write(self, vals):
         vals = self._set_show_type_vals(vals)
         return super(ProjectProject, self).write(vals)
@@ -116,9 +118,9 @@ class ProjectProject(models.Model):
             ]
             values = filter(lambda x: x, values)
             self.name = " - ".join(values)
-            if self.parent_id.artist_id:
+            if self.parent_id and self.parent_id.artist_id:
                 self.artist_id = self.parent_id.artist_id.id
-            if self.parent_id.analytic_account_id:
+            if self.parent_id and self.parent_id.analytic_account_id:
                 self.analytic_account_id = self.parent_id.analytic_account_id.id
 
     @api.model
@@ -145,7 +147,8 @@ class ProjectProject(models.Model):
 
     @api.onchange('partner_id', 'show_type')
     def _onchange_partner_id(self):
-        res = super(ProjectProject, self)._onchange_partner_id()
+        # res = super(ProjectProject, self)._onchange_partner_id()
+        res = {"domain": {}}
         if self.show_type in ('show', 'tour'):
             res['domain']['analytic_account_id'] = []
         return res
